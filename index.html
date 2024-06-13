@@ -4,16 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEME generator</title>
+    <title>MEME Generator</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body onload="onInit()">
 
     <section class="image-gallery">
-        <img src="meme-imgs/meme-imgs (square)/1.jpg" alt="">
+        <h2>Gallery</h2>
+        <div class="image-container"></div>
     </section>
 
+    <h2>meme editor</h2>
+    <section class="meme-editor flex">
+        <div class="canvas-container">
+
+            <canvas width="500" height="500" onmouseup=""> </canvas>
+
+        </div>
+        <div class="editor"> </div>
+
+    </section>
     <script src="js/service.js"></script>
     <script src="js/controller.js"></script>
 </body>

@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.image-container {
+    display: grid;
+    /* grid-template-columns: repeat(5, 200px); */
+    gap: 20px;
+    /* place-content: center; */
+    grid-auto-flow: column;
+    overflow-x: scroll;
+}
+
+img {
+    height: 200px;
+
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+canvas {
+    border: 1px solid gray;
+}
