@@ -27,6 +27,9 @@
             <input onkeydown="onTypeText(this.value)" type="text" placeholder="Add Text Here">
             <input type="color" onchange="onFillColor(this.value)">
             <input type="color" onchange="onStrokeColor(this.value)">
+            <button onclick="onChangeFontSize('+')" class="increase-font">+</button>
+            <button onclick="onChangeFontSize('-')" class="decrease-font">-</button>
+
             <a class="link save" href="#" onclick="onDownloadCanvas(this)" download="file-name">Save</a>
         </div>
 

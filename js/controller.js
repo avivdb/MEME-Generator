@@ -12,7 +12,7 @@ function renderGallery() {
     var strHtml = ''
 
     for (let i = 1; i <= 18; i++) {
-        strHtml += `<img onclick="onSelectImage(this)" src="meme-imgs/meme-imgs (square)/${i}.jpg" alt="">`
+        strHtml += `<img onclick="onSelectImage(this)" src="img/${i}.jpg" alt="">`
     }
 
     var elGallery = document.querySelector('.image-container')
@@ -28,9 +28,7 @@ function onSelectImage(elImage) {
 
 function onDownloadCanvas(elLink) {
     const dataUrl = gElCanvas.toDataURL()
-    // console.log('dataUrl:', dataUrl)
     elLink.href = dataUrl
-    // Set a name for the downloaded file
     elLink.download = 'my-img'
 }
 
@@ -45,4 +43,19 @@ function onFillColor(elColor) {
 }
 function onStrokeColor(elColor) {
     gStrokeColor = elColor
+}
+function onChangeFontSize(operator) {
+    changeFontSize(operator)
+}
+
+function renderMeme() {
+    const meme = getMeme()
+    const img = getImg()
+    console.log('meme:', meme);
+    const image = new Image()
+    const imgId = meme.selectedImgId
+    console.log('imgId:', imgId);
+    iMMg = gImgs.find(img => img.id === imgId)
+    console.log('iMMg:', iMMg);
+    console.log('image:', image);
 }
