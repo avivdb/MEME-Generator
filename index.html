@@ -17,14 +17,21 @@
 
     <h2>meme editor</h2>
     <section class="meme-editor flex">
+
         <div class="canvas-container">
 
             <canvas width="500" height="500" onmouseup=""> </canvas>
 
         </div>
-        <div class="editor"> </div>
+        <div class="editor">
+            <input onkeydown="onTypeText(this.value)" type="text" placeholder="Add Text Here">
+            <input type="color" onchange="onFillColor(this.value)">
+            <input type="color" onchange="onStrokeColor(this.value)">
+            <a class="link save" href="#" onclick="onDownloadCanvas(this)" download="file-name">Save</a>
+        </div>
 
     </section>
+
     <script src="js/service.js"></script>
     <script src="js/controller.js"></script>
 </body>
