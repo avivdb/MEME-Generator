@@ -1,0 +1,5 @@
+.image-gallery {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(100);
+}
