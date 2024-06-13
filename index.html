@@ -24,19 +24,32 @@
 
         </div>
         <div class="editor">
-            <input onkeydown="onTypeText(this.value)" type="text" placeholder="Add Text Here">
-            <input type="color" onchange="onFillColor(this.value)">
-            <input type="color" onchange="onStrokeColor(this.value)">
-            <button onclick="onChangeFontSize('+')" class="increase-font">+</button>
-            <button onclick="onChangeFontSize('-')" class="decrease-font">-</button>
+            <div class="first-line">
+
+                <input class="txt-line-0" onkeydown="onTypeText(this.value,0)" type="text" placeholder="Add Text Here">
+                <input type="color" onchange="onFillColor(this.value,0)">
+                <input type="color" onchange="onStrokeColor(this.value,0)">
+                <button onclick="onChangeFontSize('+',0)" class="increase-font">+</button>
+                <button onclick="onChangeFontSize('-',0)" class="decrease-font">-</button>
+            </div>
+            <div class="second-line">
+
+                <input class="txt-line-1" onkeydown="onTypeText(this.value,1)" type="text" name="" id=""
+                    placeholder="Add Text Here">
+                <input type="color" onchange="onFillColor(this.value,1)">
+                <input type="color" onchange="onStrokeColor(this.value,1)">
+                <button onclick="onChangeFontSize('+',1)" class="increase-font">+</button>
+                <button onclick="onChangeFontSize('-',1)" class="decrease-font">-</button>
+            </div>
 
             <a class="link save" href="#" onclick="onDownloadCanvas(this)" download="file-name">Save</a>
         </div>
 
     </section>
 
-    <script src="js/service.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+    <script src="js/gallery.controller.js"></script>
 </body>
 
 </html>
