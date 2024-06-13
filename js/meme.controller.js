@@ -44,7 +44,7 @@ function onSelectImage(elImage) {
     // document.querySelector('.fill-1').value = gMeme.lines[1].color.fill
     document.querySelector('.stroke').value = gMeme.lines[0].color.stroke
     // document.querySelector('.stroke-1').value = gMeme.lines[1].color.stroke
-
+    updateEditor()
     renderMeme()
 }
 
@@ -54,29 +54,37 @@ function onTypeText(elText) {
     console.log('elText:', elText);
     setLineTxt(elText)
     renderMeme()
+    updateEditor()
 }
 
 function onFillColor(elColor) {
     setFillColor(elColor)
     renderMeme()
+    updateEditor()
+
 
     // gFillColor = elColor
 }
 function onStrokeColor(elColor) {
     setStrokeColor(elColor)
     renderMeme()
+    updateEditor()
+
 
     // gStrokeColor = elColor
 }
 function onChangeFontSize(operator) {
     changeFontSize(operator)
     renderMeme()
+    updateEditor()
+
 }
 
 
 function onAddLine() {
     addLine()
     renderMeme()
+
 
 }
 
@@ -157,4 +165,11 @@ function onMove(ev) {
 function onUp() {
     setLineDrag(false)
     document.body.style.cursor = 'grab'
+}
+
+function updateEditor() {
+    const line = getLine()
+    document.querySelector('.txt').value = line.txt
+    document.querySelector('.fill').value = line.color.fill
+    document.querySelector('.stroke').value = line.color.stroke
 }

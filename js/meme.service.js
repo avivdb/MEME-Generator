@@ -129,6 +129,7 @@ function isLineClicked(clickedPos) {
         if (clickedPos.x >= x && clickedPos.x <= x + gCtx.measureText(line.txt).width &&
             clickedPos.y >= y - height && clickedPos.y <= y) {
             gCurrLine = i;  // set the current line to the clicked line
+            updateEditor()
             return true;
         }
     }
