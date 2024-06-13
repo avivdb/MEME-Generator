@@ -3,6 +3,7 @@ var gFontSize = 40
 var gFontFamily = 'Ariel'
 var gId = 1
 var gImgs = _createImgs()
+var gLineNum = 1
 
 var gMeme = {
     selectedImgId: 1,
@@ -33,17 +34,14 @@ function createMeme(elImage) {
             {
                 txt: '',
                 size: 40,
-                color: { stroke: 'black', fill: 'black' }
-            },
-            {
-                txt: '',
-                size: 40,
-                color: { stroke: 'black', fill: 'black' }
+                color: { stroke: 'black', fill: 'black' },
+                pos: { x: 50, y: 50 }
             }
         ]
     }
     gMeme = meme
     console.log('meme:', meme);
+    return meme
 }
 function drawImg(imgId) {
     const newImage = new Image()
@@ -90,7 +88,19 @@ function changeFontSize(operator, selectedLineIdx) {
     if (operator === '-') gMeme.lines[selectedLineIdx].size--
 
 }
+function addLine() {
 
+    // linePositions.push({ x: 50, y: linePositions[linePositions.length - 1].y + 50 })
+    console.log('linePositions:', linePositions);
+    // var numLines = gMeme.lines.length
+    console.log('gMeme.lines[gMeme.lines.length - 1].y:', gMeme.lines[gMeme.lines.length - 1].y);
+    gMeme.lines[gMeme.lines.length] = {
+        txt: '',
+        size: 40,
+        color: { stroke: 'black', fill: 'black' },
+        pos: { x: 50, y: gMeme.lines[gMeme.lines.length - 1].y + 50 }
+    }
+}
 function _createImg(id, url, keywords) {
     const img = { id, url, keywords }
     gId++

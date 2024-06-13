@@ -26,22 +26,22 @@
         <div class="editor">
             <div class="first-line">
 
-                <input class="txt-line-0" onkeydown="onTypeText(this.value,0)" type="text" placeholder="Add Text Here">
-                <input type="color" onchange="onFillColor(this.value,0)">
-                <input type="color" onchange="onStrokeColor(this.value,0)">
+                <input class="txt" onkeydown="onTypeText(this.value,0)" type="text" placeholder="Add Text Here">
+                <input class="fill" type="color" onchange="onFillColor(this.value,0)">
+                <input class="stroke" type="color" onchange="onStrokeColor(this.value,0)">
                 <button onclick="onChangeFontSize('+',0)" class="increase-font">+</button>
                 <button onclick="onChangeFontSize('-',0)" class="decrease-font">-</button>
             </div>
-            <div class="second-line">
+            <!-- <div class="second-line">
 
                 <input class="txt-line-1" onkeydown="onTypeText(this.value,1)" type="text" name="" id=""
                     placeholder="Add Text Here">
-                <input type="color" onchange="onFillColor(this.value,1)">
-                <input type="color" onchange="onStrokeColor(this.value,1)">
+                <input class="fill-1" type="color" onchange="onFillColor(this.value,1)">
+                <input class="stroke-1" type="color" onchange="onStrokeColor(this.value,1)">
                 <button onclick="onChangeFontSize('+',1)" class="increase-font">+</button>
                 <button onclick="onChangeFontSize('-',1)" class="decrease-font">-</button>
-            </div>
-
+            </div> -->
+            <button onclick="onAddLine()">Add Line</button>
             <a class="link save" href="#" onclick="onDownloadCanvas(this)" download="file-name">Save</a>
         </div>
 
