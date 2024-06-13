@@ -3,7 +3,8 @@ var gFontSize = 40
 var gFontFamily = 'Ariel'
 var gId = 1
 var gImgs = _createImgs()
-var gLineNum = 1
+var gCurrLine = 0
+var gLine
 
 var gMeme = {
     selectedImgId: 1,
@@ -58,49 +59,39 @@ function coverCanvasWithImg(elImg) {
 }
 
 
-function setLineTxt(txt, selectedLineIdx) {
+function setLineTxt(txt) {
     const meme = getMeme()
     console.log('meme:', meme);
-    const lines = meme.lines[selectedLineIdx]
-    console.log('lines:', lines);
-    lines.txt = txt
-}
-function drawText(text, x, y, fontSize, color) {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = color.stroke
-    gCtx.fillStyle = color.fill
-    gCtx.font = `${fontSize}px Arial`
-    gCtx.textAlign = 'left'
-    gCtx.textBaseline = 'center'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
-}
-function setFillColor(elColor, selectedLineIdx) {
-
-    gMeme.lines[selectedLineIdx].color.fill = elColor
+    const line = meme.lines[gCurrLine]
+    console.log('line:', line);
+    line.txt = txt
 }
 
-function setStrokeColor(elColor, selectedLineIdx) {
-    gMeme.lines[selectedLineIdx].color.stroke = elColor
+function setFillColor(elColor) {
+
+    gMeme.lines[gCurrLine].color.fill = elColor
 }
-function changeFontSize(operator, selectedLineIdx) {
-    if (operator === '+') gMeme.lines[selectedLineIdx].size++
-    if (operator === '-') gMeme.lines[selectedLineIdx].size--
+
+function setStrokeColor(elColor) {
+    gMeme.lines[gCurrLine].color.stroke = elColor
+}
+function changeFontSize(operator) {
+    if (operator === '+') gMeme.lines[gCurrLine].size++
+    if (operator === '-') gMeme.lines[gCurrLine].size--
 
 }
 function addLine() {
-
-    // linePositions.push({ x: 50, y: linePositions[linePositions.length - 1].y + 50 })
-    console.log('linePositions:', linePositions);
-    // var numLines = gMeme.lines.length
-    console.log('gMeme.lines[gMeme.lines.length - 1].y:', gMeme.lines[gMeme.lines.length - 1].y);
-    gMeme.lines[gMeme.lines.length] = {
+    gCurrLine = gMeme.lines.length
+    console.log('gCurrLine:', gCurrLine);
+    gMeme.lines[gCurrLine] = {
         txt: '',
         size: 40,
         color: { stroke: 'black', fill: 'black' },
-        pos: { x: 50, y: gMeme.lines[gMeme.lines.length - 1].y + 50 }
+        pos: { x: 50, y: gMeme.lines[gCurrLine - 1].pos.y + 50 }
     }
+
 }
+
 function _createImg(id, url, keywords) {
     const img = { id, url, keywords }
     gId++
@@ -114,3 +105,45 @@ function _createImgs() {
     ]
 }
 
+function drawText(text, x, y, fontSize, color) {
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = color.stroke
+    gCtx.fillStyle = color.fill
+    gCtx.font = `${fontSize}px Arial`
+    gCtx.textAlign = 'left'
+    gCtx.textBaseline = 'center'
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+}
+function getLine() {
+    return gMeme.lines[gCurrLine]
+}
+
+function isLineClicked(clickedPos) {
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        // const { pos } = gMeme.lines[i].pos
+        const line = gMeme.lines[i];
+        const { x, y } = line.pos;
+        const height = line.size;
+
+        if (clickedPos.x >= x && clickedPos.x <= x + gCtx.measureText(line.txt).width &&
+            clickedPos.y >= y - height && clickedPos.y <= y) {
+            gCurrLine = i;  // set the current line to the clicked line
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function setLineDrag(isDrag) {
+    const line = getLine()
+    line.isDrag = isDrag
+}
+
+//* Move the Line in a delta, diff from the pervious pos
+function moveLine(dx, dy) {
+    const line = getLine()
+    line.pos.x += dx
+    line.pos.y += dy
+}
