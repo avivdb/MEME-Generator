@@ -1,0 +1,103 @@
+@media (max-width: 817px) {
+    .main-layout {
+        /* display: grid; */
+        grid-template-columns: 20px 640px 20px;
+        /* gap: 1em; */
+        /* background-color: #22252c; */
+    }
+
+
+    .image-container img {
+        /* width: 200px;
+        height: 200px; */
+    }
+
+    .main-header {
+        border-radius: 0px;
+    }
+
+    .image-container {
+
+        grid-template-columns: 286px 286px;
+        grid-auto-rows: 300px;
+        /* height: 100%; */
+        /* gap: 0px 0px; */
+        gap: 1.875em 1.625em;
+        /* height: 1280px; */
+
+    }
+
+    canvas {
+        margin-block-end: 1em;
+    }
+
+    .meme-editor {
+        /* display: grid; */
+        /* grid-template-columns: 1fr 1.102941fr; */
+        /* justify-content: space-around; */
+        /* justify-items: center; */
+        /* background-image: url(/DESIGN/Meme2-GameStyle/Background.png); */
+    }
+}
+
+
+
+@media (min-width:817px) {
+    .main-layout {
+        /* display: grid; */
+        grid-template-columns: 25px minmax(680px, 1291px) 25px;
+        /* gap: 1em; */
+        /* background-color: #22252c; */
+    }
+
+
+    .main-header {
+        height: 4.5625rem;
+        margin-block-start: 34px;
+        border-radius: 36.5px;
+        background-image: linear-gradient(to top, #0c98b9, #33be6d);
+        font-family: 'poppins-medium';
+        color: #ffffff;
+    }
+
+    .meme-editor {
+        display: grid;
+        grid-template-columns: 1fr 1.102941fr;
+        justify-content: space-around;
+        justify-items: center;
+        background-image: url(/DESIGN/Meme2-GameStyle/Background.png);
+    }
+
+    .image-container {
+
+        grid-template-columns: repeat(auto-fit, 200px);
+        grid-auto-rows: 173px;
+        height: 35.375rem;
+        overflow-y: scroll;
+        gap: 2.875em 1.625em;
+
+    }
+
+    .image-container img {
+
+        /* width: 200px;
+        height: 173px; */
+
+        border-radius: 10px;
+        box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.34);
+        background-color: #fefefe;
+
+    }
+
+    canvas {
+        margin-inline-end: 1em;
+    }
+
+    .meme-editor {
+        /* display: grid; */
+        grid-template-columns: 1fr 1.102941fr;
+        /* justify-content: space-around;
+            justify-items: center;
+            background-image: url(/DESIGN/Meme2-GameStyle/Background.png); */
+    }
+}

@@ -27,9 +27,12 @@ html {
 }
 
 .image-container img {
-
-    width: 200px;
-    height: 173px;
+    /* width: fit-content; */
+    /* width: 200px;
+    height: 173px; */
+    /* height: 300px;
+    width: 300px; */
+    width: 100%;
 
     border-radius: 10px;
     box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.34);

@@ -20,29 +20,23 @@
 
     </header>
 
+
     <section class="image-gallery image-gallery-layout main-content ">
-
-
-
-        <div class="search-bar flex space-between align-center">
+        <section class="search-bar flex space-between align-center">
 
             <input class="search-bar-input" type="text" placeholder="Search">
 
             <div class="words-cloud flex align-center space-between"><span class="search-words">Funny</span> </div>
 
-            <label class="upload-btn" for="upload-btn">Upload </label>
+            <label class="upload btn" for="upload-btn">Upload</label>
             <input id="upload-btn" type="file" class="file-input btn hidden" name="image" onchange="onImgInput(event)"
                 accept="image/*" />
 
-        </div>
-
+        </section>
         <div class="image-container"></div>
-
-
-
     </section>
 
-    <section class="meme-editor main-content">
+    <section class="meme-editor  hidden">
 
         <div class="canvas-container">
 
@@ -53,7 +47,7 @@
         <div class="editor">
             <input class="txt" onkeydown="onTypeText(this.value,0)" type="text" placeholder="Add Text Here">
             <div class="edit-line flex align-center">
-                <button class="add-line btn" onclick="onAddLine()">+</button>
+                <button class="add-line btn" onclick="onAddLine()"></button>
                 <button class="remove-line btn" onclick="onDeleteLine()"></button>
             </div>
 

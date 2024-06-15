@@ -1,10 +1,10 @@
+@import url(./setup/mq.css);
 @import url(./basics/base.css);
 @import url(./basics/layouts.css);
 @import url(./basics/helpers.css);
 
 @import url(./setup/typography.css);
 @import url(./setup/vars.css);
-@import url(./setup/mq.css);
 
 @import url(./components/main-header.css);
 @import url(./components/search-bar.css);

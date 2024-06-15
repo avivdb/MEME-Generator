@@ -40,6 +40,11 @@
 
 }
 
+.add-line::after {
+    content: '\2b';
+    font-family: 'fa';
+}
+
 .remove-line {
     /* font-size: 32.5px; */
     font-size: 2.03125em;
@@ -105,8 +110,9 @@ input[type='color'] {
 .share>* {
     font-size: 1.3125em;
     font-family: 'poppins-medium';
-    width: 213px;
-    height: 50px;
+    width: fit-content;
+    padding: 1em;
+    /* height: 50px; */
 }
 
 .share-facebook {

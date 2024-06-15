@@ -1,11 +1,9 @@
 .main-header {
 
-    /* width: 1257px; */
+
     height: 4.5625rem;
-    /* margin: 0 0 16px; */
-    /* padding: 19px 247px 14px 81px; */
     margin-block-start: 34px;
-    border-radius: 36.5px;
+    /* border-radius: 36.5px; */
     background-image: linear-gradient(to top, #0c98b9, #33be6d);
     font-family: 'poppins-medium';
     color: #ffffff;
