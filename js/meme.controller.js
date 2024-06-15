@@ -28,7 +28,7 @@ function renderMeme() {
         var elInput = document.querySelector(`.txt`)
         elInput.value = line.txt
         console.log('line:', line);
-        drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
+        drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color, line.align, line.fontFamily)
 
     }
     console.log('meme:', meme);
@@ -37,24 +37,15 @@ function renderMeme() {
 
 }
 
-function onSelectImage(elImage) {
-    createMeme(elImage)
-    document.querySelector('.txt').value = gMeme.lines[0].txt
-    document.querySelector('.fill').value = gMeme.lines[0].color.fill
-    // document.querySelector('.fill-1').value = gMeme.lines[1].color.fill
-    document.querySelector('.stroke').value = gMeme.lines[0].color.stroke
-    // document.querySelector('.stroke-1').value = gMeme.lines[1].color.stroke
-    updateEditor()
-    renderMeme()
-}
+
 
 
 
 function onTypeText(elText) {
-    console.log('elText:', elText);
+    // console.log('elText:', elText);
     setLineTxt(elText)
-    renderMeme()
     updateEditor()
+    renderMeme()
 }
 
 function onFillColor(elColor) {
@@ -84,8 +75,7 @@ function onChangeFontSize(operator) {
 function onAddLine() {
     addLine()
     renderMeme()
-
-
+    updateEditor()
 }
 
 function onDownloadCanvas(elLink) {
@@ -172,4 +162,34 @@ function updateEditor() {
     document.querySelector('.txt').value = line.txt
     document.querySelector('.fill').value = line.color.fill
     document.querySelector('.stroke').value = line.color.stroke
+    document.querySelector('.font-select').value = line.fontFamily
+}
+
+function onAlignText(direction) {
+    alignText(direction)
+    elInput = document.querySelector('.txt')
+    if (direction === 'right') {
+        elInput.classList.remove('align-center')
+        elInput.classList.remove('align-left')
+
+    } else if (direction === 'center') {
+        elInput.classList.remove('align-left')
+        elInput.classList.remove('align-right')
+
+    } else if (direction === 'left') {
+        elInput.classList.remove('align-center')
+        elInput.classList.remove('align-right')
+
+    }
+    elInput.classList.add(`align-${direction}`)
+    renderMeme()
+}
+
+function onDeleteLine() {
+    deleteLine()
+}
+
+function onSetFont(elFont) {
+    console.log('elFont:', elFont);
+    setFont(elFont)
 }

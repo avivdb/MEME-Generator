@@ -8,39 +8,99 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="onInit()">
+<body class="main-layout" onload="onInit()">
 
-    <section class="image-gallery">
-        <h2>Gallery</h2>
+    <header class="main-header flex space-between align-center">
+
+        <div class="logo">Logo</div>
+        <ul class="nav-bar clean-list flex">
+            <li><a onclick="onShowGallery()" href="#">Gallery</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+    </header>
+
+    <section class="image-gallery image-gallery-layout main-content ">
+
+
+
+        <div class="search-bar flex space-between align-center">
+
+            <input class="search-bar-input" type="text" placeholder="Search">
+
+            <div class="words-cloud flex align-center space-between"><span class="search-words">Funny</span> </div>
+
+            <label class="upload-btn" for="upload-btn">Upload </label>
+            <input id="upload-btn" type="file" class="file-input btn hidden" name="image" onchange="onImgInput(event)"
+                accept="image/*" />
+
+        </div>
+
         <div class="image-container"></div>
-        <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
+
+
+
     </section>
 
-    <h2>meme editor</h2>
-    <section class="meme-editor flex">
+    <section class="meme-editor main-content">
 
         <div class="canvas-container">
 
             <canvas width="500" height="500" onmouseup=""> </canvas>
 
         </div>
-        <div class="editor">Line
-            <div class="first-line">
 
-                <input class="txt" onkeydown="onTypeText(this.value,0)" type="text" placeholder="Add Text Here">
-                <input class="fill" type="color" onchange="onFillColor(this.value,0)">
-                <input class="stroke" type="color" onchange="onStrokeColor(this.value,0)">
-                <button onclick="onChangeFontSize('+',0)" class="increase-font">+</button>
-                <button onclick="onChangeFontSize('-',0)" class="decrease-font">-</button>
+        <div class="editor">
+            <input class="txt" onkeydown="onTypeText(this.value,0)" type="text" placeholder="Add Text Here">
+            <div class="edit-line flex align-center">
+                <button class="add-line btn" onclick="onAddLine()">+</button>
+                <button class="remove-line btn" onclick="onDeleteLine()"></button>
             </div>
-            <button onclick="onAddLine()">Add Line</button>
-            <a class="link save" href="#" onclick="onDownloadCanvas(this)" download="file-name">Save</a>
-            <button class="btn" onclick="onUploadImg()">
-                Share on Facebook
-            </button>
+
+            <div class="edit-font flex align-center">
+
+                <button onclick="onChangeFontSize('+')" class="increase-font btn">A⁺</button>
+                <button onclick="onChangeFontSize('-')" class="decrease-font btn">A⁻</button>
+                <button onclick="onAlignText('left')" class="align-text-left btn"></button>
+                <button onclick="onAlignText('center')" class="align-text-center btn"></button>
+                <button onclick="onAlignText('right')" class="align-text-right btn"></button>
+
+                <label for="fill btn">
+                    <div class="fill-btn btn"></div>
+                </label>
+                <input id="fill btn" class="fill" type="color" onchange="onFillColor(this.value,0)">
+
+                <label for="stroke btn">
+                    <div class="stroke-btn btn"></div>
+                </label>
+                <input id="stroke btn" class="stroke" type="color" onchange="onStrokeColor(this.value,0) ">
+
+
+                <select onchange="onSetFont(this.value)" name="Font" id="font-select" class="font-select btn">
+                    <option value="Impact">Impact</option>
+                    <option value="Ariel">Ariel</option>
+                    <option value="poppins-regular">poppins-regular</option>
+                </select>
+
+
+
+
+            </div>
+
+            <div class="stickers flex space-between align-center"></div>
+
+            <div class="share flex space-between align-center">
+
+                <button class="share-facebook btn" onclick="onUploadImg()">Share</button>
+                <a class="download btn" href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
+
+            </div>
+
         </div>
 
     </section>
+
+
     <script src="js/meme.upload-from-local.js"></script>
     <script src="js/meme.sharing-on-facebook.js"></script>
     <script src="js/meme.service.js"></script>

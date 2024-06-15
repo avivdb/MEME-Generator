@@ -1,0 +1,46 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: minmax(10px, 25px) 1291px minmax(10px, 25px);
+    gap: 16px;
+    background-color: #22252c;
+}
+
+.main-layout>* {
+    grid-column: 2;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1243px;
+
+    justify-content: center;
+    background-color: #383b42;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #383b42;
+
+}
+
+.image-container {
+
+    height: 35.375rem;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    grid-auto-rows: 180px;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+    gap: 30px 26px;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.meme-editor {
+    display: grid;
+    grid-template-columns: 476px 525px;
+    justify-content: space-around;
+    /* justify-items: center; */
+    background-image: url(/DESIGN/Meme2-GameStyle/Background.png);
+}

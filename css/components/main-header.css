@@ -1,0 +1,34 @@
+.main-header {
+
+    /* width: 1257px; */
+    height: 4.5625rem;
+    /* margin: 0 0 16px; */
+    /* padding: 19px 247px 14px 81px; */
+    margin-block-start: 34px;
+    border-radius: 36.5px;
+    background-image: linear-gradient(to top, #0c98b9, #33be6d);
+    font-family: 'poppins-medium';
+    color: #ffffff;
+
+}
+
+.main-header a {
+    margin-inline-end: 2.5em;
+    font-size: 1.3125em;
+    color: #ffffff;
+    padding: 0.625em;
+    border-radius: 18.25em;
+    transition: 0.3s ease-out;
+}
+
+.main-header li:last-child a {
+    margin-inline-end: 15.4375em;
+}
+
+.main-header a:hover {
+
+    box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15);
+    background-color: #fefefe;
+    color: #21ac91;
+
+}

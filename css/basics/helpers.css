@@ -1,4 +1,79 @@
+.hidden {
+    display: none;
+}
+
+/* grid helpers */
+
+.grid {
+    display: grid;
+}
+
+.grid.flow-column {
+    grid-auto-flow: column;
+}
+
+.grid.align-center {
+    align-items: center;
+}
+
+.grid.space-between {
+    justify-content: space-between;
+}
+
+/* flex helpers  */
+
 .flex {
     display: flex;
+}
 
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+/* list helpers */
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* display helpers */
+
+.hidden {
+    display: none;
+}
+
+/* backdrop helpers */
+
+
+
+/* Position helpers */
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
 }

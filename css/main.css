@@ -4,3 +4,10 @@
 
 @import url(./setup/typography.css);
 @import url(./setup/vars.css);
+@import url(./setup/mq.css);
+
+@import url(./components/main-header.css);
+@import url(./components/search-bar.css);
+@import url(./components/logo.css);
+@import url(./components/editor.css);
+@import url(./components/canvas.css);

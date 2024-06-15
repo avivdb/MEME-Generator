@@ -10,3 +10,24 @@ function renderGallery() {
     var elGallery = document.querySelector('.image-container')
     elGallery.innerHTML = strHtml
 }
+
+function onSelectImage(elImage) {
+    const elGallery = document.querySelector('.image-gallery')
+    const elEditor = document.querySelector('.meme-editor')
+
+    createMeme(elImage)
+    elEditor.classList.remove('hidden')
+    elGallery.classList.add('hidden')
+
+    renderMeme()
+    // updateEditor()
+}
+
+
+
+function onShowGallery() {
+    const elGallery = document.querySelector('.image-gallery')
+    const elEditor = document.querySelector('.meme-editor')
+    elGallery.classList.remove('hidden')
+    elEditor.classList.add('hidden')
+}

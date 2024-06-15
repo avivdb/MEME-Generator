@@ -6,17 +6,17 @@ var gImgs = _createImgs()
 var gCurrLine = 0
 var gLine
 
-var gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
-            color: 'red'
-        }
-    ]
-}
+// var gMeme = {
+//     selectedImgId: 1,
+//     selectedLineIdx: 0,
+//     lines: [
+//         {
+//             txt: 'I sometimes eat Falafel',
+//             size: 20,
+//             color: 'red'
+//         }
+//     ]
+// }
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
@@ -35,8 +35,10 @@ function createMeme(elImage) {
             {
                 txt: '',
                 size: 40,
-                color: { stroke: 'black', fill: 'black' },
-                pos: { x: 50, y: 50 }
+                color: { stroke: 'red', fill: 'white' },
+                pos: { x: 50, y: 50 },
+                align: 'left',
+                fontFamily: 'Impact'
             }
         ]
     }
@@ -44,6 +46,7 @@ function createMeme(elImage) {
     console.log('meme:', meme);
     return meme
 }
+
 function drawImg(imgId) {
     const newImage = new Image()
     img = gImgs.find(img => img.id === imgId)
@@ -53,6 +56,7 @@ function drawImg(imgId) {
     coverCanvasWithImg(newImage)
     gSelectedImage = newImage
 }
+
 function coverCanvasWithImg(elImg) {
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -61,9 +65,9 @@ function coverCanvasWithImg(elImg) {
 
 function setLineTxt(txt) {
     const meme = getMeme()
-    console.log('meme:', meme);
+    // console.log('meme:', meme);
     const line = meme.lines[gCurrLine]
-    console.log('line:', line);
+    // console.log('line:', line);
     line.txt = txt
 }
 
@@ -86,7 +90,8 @@ function addLine() {
     gMeme.lines[gCurrLine] = {
         txt: '',
         size: 40,
-        color: { stroke: 'black', fill: 'black' },
+        color: { stroke: 'red', fill: 'white' },
+        fontFamily: 'Impact',
         pos: { x: 50, y: gMeme.lines[gCurrLine - 1].pos.y + 50 }
     }
 
@@ -105,12 +110,12 @@ function _createImgs() {
     ]
 }
 
-function drawText(text, x, y, fontSize, color) {
+function drawText(text, x, y, fontSize, color, align = 'center', fontFamily = 'Impacta') {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color.stroke
     gCtx.fillStyle = color.fill
-    gCtx.font = `${fontSize}px Arial`
-    gCtx.textAlign = 'left'
+    gCtx.font = `${fontSize}px ${fontFamily}`
+    gCtx.textAlign = align
     gCtx.textBaseline = 'center'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
@@ -147,4 +152,28 @@ function moveLine(dx, dy) {
     const line = getLine()
     line.pos.x += dx
     line.pos.y += dy
+}
+
+function alignText(direction) {
+    const line = getLine()
+    line.align = direction
+
+}
+
+function deleteLine() {
+    const line = getLine()
+    console.log('line:', line);
+    console.log('line.txt:', line.txt);
+    line.txt = ' '
+    console.log('line.txt:', line.txt);
+    renderMeme()
+    updateEditor()
+}
+
+function setFont(elFont) {
+    const line = getLine()
+    line.fontFamily = elFont
+    renderMeme()
+    updateEditor()
+
 }
