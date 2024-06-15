@@ -193,3 +193,7 @@ function onSetFont(elFont) {
     console.log('elFont:', elFont);
     setFont(elFont)
 }
+
+function toggleMenu() {
+    document.body.classList.toggle("menu-open")
+}

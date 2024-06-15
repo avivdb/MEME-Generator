@@ -1,7 +1,7 @@
 .main-header {
 
 
-    height: 4.5625rem;
+    /* height: 4.5625rem; */
     margin-block-start: 34px;
     /* border-radius: 36.5px; */
     background-image: linear-gradient(to top, #0c98b9, #33be6d);
@@ -11,7 +11,7 @@
 }
 
 .main-header a {
-    margin-inline-end: 2.5em;
+    /* margin-inline-end: 2.5em; */
     font-size: 1.3125em;
     color: #ffffff;
     padding: 0.625em;
@@ -20,7 +20,7 @@
 }
 
 .main-header li:last-child a {
-    margin-inline-end: 15.4375em;
+    /* margin-inline-end: 15.4375em; */
 }
 
 .main-header a:hover {
@@ -29,4 +29,41 @@
     background-color: #fefefe;
     color: #21ac91;
 
+}
+
+.main-header .btn-toggle-menu {
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+.main-header .btn-toggle-menu .hamburger-lines {
+    height: 26px;
+    width: 32px;
+    margin-inline-end: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-header .btn-toggle-menu .hamburger-lines .line {
+    height: 4px;
+    width: 100%;
+    background-color: aliceblue;
+    transition: 0.4s;
+}
+
+
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line1 {
+    rotate: -45deg;
+    transform-origin: top right;
+}
+
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line2 {
+    scale: 0;
+}
+
+body.menu-open .btn-toggle-menu .hamburger-lines .line.line3 {
+    rotate: 45deg;
+    transform-origin: bottom right;
 }

@@ -14,6 +14,8 @@
 
     .main-header {
         border-radius: 0px;
+        height: 130px;
+        position: relative;
     }
 
     .image-container {
@@ -38,6 +40,54 @@
         /* justify-items: center; */
         /* background-image: url(/DESIGN/Meme2-GameStyle/Background.png); */
     }
+
+    .logo {
+        font-size: 2.78125em;
+        /* color: #ffffff; */
+        margin-inline-start: 1.32584em;
+    }
+
+    .main-header a {
+        /* margin-inline-end: 2.5em; */
+        /* font-size: 1.3125em;
+            color: #ffffff;
+            padding: 0.625em;
+            border-radius: 18.25em;
+            transition: 0.3s ease-out; */
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 130px;
+        z-index: 1;
+        /* left: 395px; */
+        width: 100%;
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        transition: grid-template-rows 1s;
+        align-items: end;
+    }
+
+    .nav-bar {
+        min-height: 0;
+        grid-auto-flow: row;
+        padding: 5px;
+        /* background-color: var(--clrPrimary2); */
+        flex-direction: column;
+        /* flex-direction: column;
+        position: absolute;
+        right: 0px;
+        top: 130px;
+        width: 100%;
+        z-index: 1; */
+        /* transform: scaleY(0); */
+        background-image: linear-gradient(to top, #0c98b9, #33be6d);
+    }
+
+    body.menu-open .main-nav {
+        grid-template-rows: 1fr;
+    }
 }
 
 
@@ -53,11 +103,11 @@
 
     .main-header {
         height: 4.5625rem;
-        margin-block-start: 34px;
+        /* margin-block-start: 34px; */
         border-radius: 36.5px;
-        background-image: linear-gradient(to top, #0c98b9, #33be6d);
+        /* background-image: linear-gradient(to top, #0c98b9, #33be6d);
         font-family: 'poppins-medium';
-        color: #ffffff;
+        color: #ffffff; */
     }
 
     .meme-editor {
@@ -99,5 +149,28 @@
         /* justify-content: space-around;
             justify-items: center;
             background-image: url(/DESIGN/Meme2-GameStyle/Background.png); */
+    }
+
+    .logo {
+        font-size: 1.375em;
+        /* color: #ffffff; */
+        margin-inline-start: 5em;
+    }
+
+    .main-header a {
+        margin-inline-end: 2.5em;
+        /* font-size: 1.3125em; */
+        /* color: #ffffff; */
+        /* padding: 0.625em; */
+        /* border-radius: 18.25em; */
+        /* transition: 0.3s ease-out; */
+    }
+
+    .main-header li:last-child a {
+        margin-inline-end: 15.4375em;
+    }
+
+    .btn-toggle-menu {
+        display: none;
     }
 }
