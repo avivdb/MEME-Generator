@@ -1,24 +1,24 @@
 @font-face {
     font-family: poppins-light;
-    src: url(/css/fonts/Poppins-Light.ttf);
+    src: url(/fonts/Poppins-Light.ttf);
 }
 
 @font-face {
     font-family: poppins-regular;
-    src: url(/css/fonts/Poppins-Regular.ttf);
+    src: url(/fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
     font-family: poppins-medium;
-    src: url(/css/fonts/Poppins-Medium.ttf);
+    src: url(/fonts/Poppins-Medium.ttf);
 }
 
 @font-face {
     font-family: fa;
-    src: url(/css/fonts/fa-solid-900.ttf);
+    src: url(/fonts/fa-solid-900.ttf);
 }
 
 @font-face {
     font-family: poppins-semiBold;
-    src: url(/css/fonts/Poppins-SemiBold.ttf);
+    src: url(/fonts/Poppins-SemiBold.ttf);
 }
