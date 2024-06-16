@@ -6,20 +6,6 @@ var gImgs = _createImgs()
 var gCurrLine = 0
 var gLine
 
-// var gMeme = {
-//     selectedImgId: 1,
-//     selectedLineIdx: 0,
-//     lines: [
-//         {
-//             txt: 'I sometimes eat Falafel',
-//             size: 20,
-//             color: 'red'
-//         }
-//     ]
-// }
-
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-
 function getMeme() {
     return gMeme
 }
@@ -62,12 +48,11 @@ function coverCanvasWithImg(elImg) {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-
 function setLineTxt(txt) {
     const meme = getMeme()
-    // console.log('meme:', meme);
+
     const line = meme.lines[gCurrLine]
-    // console.log('line:', line);
+
     line.txt = txt
 }
 
@@ -79,11 +64,13 @@ function setFillColor(elColor) {
 function setStrokeColor(elColor) {
     gMeme.lines[gCurrLine].color.stroke = elColor
 }
+
 function changeFontSize(operator) {
     if (operator === '+') gMeme.lines[gCurrLine].size++
     if (operator === '-') gMeme.lines[gCurrLine].size--
 
 }
+
 function addLine() {
     gCurrLine = gMeme.lines.length
     console.log('gCurrLine:', gCurrLine);
@@ -120,20 +107,21 @@ function drawText(text, x, y, fontSize, color, align = 'center', fontFamily = 'I
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
+
 function getLine() {
     return gMeme.lines[gCurrLine]
 }
 
 function isLineClicked(clickedPos) {
     for (var i = 0; i < gMeme.lines.length; i++) {
-        // const { pos } = gMeme.lines[i].pos
+
         const line = gMeme.lines[i];
         const { x, y } = line.pos;
         const height = line.size;
 
         if (clickedPos.x >= x && clickedPos.x <= x + gCtx.measureText(line.txt).width &&
             clickedPos.y >= y - height && clickedPos.y <= y) {
-            gCurrLine = i;  // set the current line to the clicked line
+            gCurrLine = i;
             updateEditor()
             return true;
         }
@@ -141,13 +129,11 @@ function isLineClicked(clickedPos) {
     return false;
 }
 
-
 function setLineDrag(isDrag) {
     const line = getLine()
     line.isDrag = isDrag
 }
 
-//* Move the Line in a delta, diff from the pervious pos
 function moveLine(dx, dy) {
     const line = getLine()
     line.pos.x += dx

@@ -1,6 +1,5 @@
 .main-layout {
     display: grid;
-    /* grid-template-columns: 25px minmax(500px, 1291px) 25px; */
     gap: 1em;
     background-color: #22252c;
 }
@@ -26,15 +25,12 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
-    /* gap: 1.875em 1.625em; */
     object-fit: cover;
     object-position: center;
-
 }
 
 .meme-editor {
     display: grid;
-    /* grid-template-columns: 1fr 1.102941fr; */
     justify-content: space-around;
     justify-items: center;
     background-image: url(/DESIGN/Meme2-GameStyle/Background.png);

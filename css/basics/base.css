@@ -7,31 +7,19 @@ html {
     font-family: 'poppins-light';
 }
 
-
-
-
-
 .image-container::-webkit-scrollbar {
     width: 1em;
-    /* color: aqua; */
     background-color: #22252c;
     border-radius: 6.5px;
 }
 
 .image-container::-webkit-scrollbar-thumb {
-    /* width: 30px; */
-    /* height: 7px; */
     border-radius: 6.5px;
     background-image: linear-gradient(to top, #0c98b9, #33be6d);
 
 }
 
 .image-container img {
-    /* width: fit-content; */
-    /* width: 200px;
-    height: 173px; */
-    /* height: 300px;
-    width: 300px; */
     width: 100%;
 
     border-radius: 10px;
@@ -43,8 +31,6 @@ html {
 img:hover {
     cursor: pointer;
 }
-
-
 
 a {
 

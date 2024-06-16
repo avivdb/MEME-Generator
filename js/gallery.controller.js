@@ -1,17 +1,21 @@
+function onInitGallery() {
+
+    createGallery()
+    renderGallery()
+
+}
 
 function renderGallery() {
 
-    var strHtml = ''
-
-    for (let i = 1; i <= 18; i++) {
-        strHtml += `<img onclick="onSelectImage(this)" src="img/${i}.jpg" alt="">`
-    }
-
+    const imgs = getImgs()
+    const galleryHtml = imgs.map(img => `<img onclick="onSelectImage(this)" src="${img.url}" alt="">`).join('')
     var elGallery = document.querySelector('.image-container')
-    elGallery.innerHTML = strHtml
+    elGallery.innerHTML = galleryHtml
+
 }
 
 function onSelectImage(elImage) {
+
     const elGallery = document.querySelector('.image-gallery')
     const elEditor = document.querySelector('.meme-editor')
 
@@ -20,14 +24,24 @@ function onSelectImage(elImage) {
     elGallery.classList.add('hidden')
 
     renderMeme()
-    // updateEditor()
+
 }
 
-
-
 function onShowGallery() {
+
     const elGallery = document.querySelector('.image-gallery')
     const elEditor = document.querySelector('.meme-editor')
     elGallery.classList.remove('hidden')
     elEditor.classList.add('hidden')
+}
+
+function onFilterGallery(elKeyword) {
+
+    filterBy = elKeyword
+    renderGallery()
+
+}
+
+function renderWordCloud() {
+
 }
