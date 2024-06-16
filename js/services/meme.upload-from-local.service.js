@@ -3,8 +3,6 @@ function onImgInput(ev) {
     loadImageFromInput(ev, renderImg)
 }
 
-
-
 function loadImageFromInput(ev, onImageReady) {
     const reader = new FileReader()
     reader.onload = function (event) {
@@ -18,5 +16,8 @@ function loadImageFromInput(ev, onImageReady) {
 function renderImg(elImg) {
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-}
 
+    createMeme(elImg)
+    renderMeme()
+    onShowEditor()
+}

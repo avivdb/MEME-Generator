@@ -2,6 +2,7 @@ function onInitGallery() {
 
     createGallery()
     renderGallery()
+    renderWordCloud()
 
 }
 
@@ -16,13 +17,8 @@ function renderGallery() {
 
 function onSelectImage(elImage) {
 
-    const elGallery = document.querySelector('.image-gallery')
-    const elEditor = document.querySelector('.meme-editor')
-
+    onShowEditor()
     createMeme(elImage)
-    elEditor.classList.remove('hidden')
-    elGallery.classList.add('hidden')
-
     renderMeme()
 
 }
@@ -33,6 +29,7 @@ function onShowGallery() {
     const elEditor = document.querySelector('.meme-editor')
     elGallery.classList.remove('hidden')
     elEditor.classList.add('hidden')
+    onResetGallery()
 }
 
 function onFilterGallery(elKeyword) {
@@ -43,5 +40,45 @@ function onFilterGallery(elKeyword) {
 }
 
 function renderWordCloud() {
+    var strHtml = ''
+    const words = gKeywords.flat()
+    let max = 0
+    for (var i = 0; i < 10; i++) {
 
+        const word = words[getRandomIntInclusive(0, words.length - 1)]
+        let factor = gKeywordSearchCountMap[word]
+
+        factor *= 3
+        factor += 20
+
+        strHtml += `<span onclick="onSearchWord(this.innerHTML)" style="font-size: ${factor}px;">${word}</span>`
+        factor = 0
+    }
+
+    const elCloud = document.querySelector('.words-cloud')
+    elCloud.innerHTML = strHtml
+
+}
+
+function onSearchWord(elWord) {
+    filterBy = elWord
+    renderGallery()
+}
+
+function onResetGallery() {
+    filterBy = ''
+    onClearSearch()
+    renderGallery()
+}
+
+function onClearSearch() {
+    var elInput = document.querySelector('.search-bar-input')
+    elInput.value = ''
+}
+
+function onShowEditor() {
+    const elGallery = document.querySelector('.image-gallery')
+    const elEditor = document.querySelector('.meme-editor')
+    elEditor.classList.remove('hidden')
+    elGallery.classList.add('hidden')
 }

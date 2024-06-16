@@ -4,6 +4,7 @@ var gSelectedImage
 var gStrokeColor
 var gFillColor
 let gStartPos
+var isOpen = false
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
@@ -13,7 +14,6 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     addListeners()
-
 }
 
 function renderMeme() {
@@ -27,13 +27,8 @@ function renderMeme() {
         const line = meme.lines[i]
         var elInput = document.querySelector(`.txt`)
         elInput.value = line.txt
-        console.log('line:', line);
         drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color, line.align, line.fontFamily)
-
     }
-    console.log('meme:', meme);
-    console.log('imgId:', imgId);
-
 
 }
 
@@ -49,16 +44,12 @@ function onFillColor(elColor) {
     renderMeme()
     updateEditor()
 
-
-
 }
 
 function onStrokeColor(elColor) {
     setStrokeColor(elColor)
     renderMeme()
     updateEditor()
-
-
 
 }
 
@@ -122,9 +113,7 @@ function getEvPos(ev) {
 
 function onDown(ev) {
 
-
     const pos = getEvPos(ev)
-    console.log('pos', pos)
     if (!isLineClicked(pos)) return
 
     setLineDrag(true)
@@ -186,10 +175,21 @@ function onDeleteLine() {
 }
 
 function onSetFont(elFont) {
-    console.log('elFont:', elFont);
     setFont(elFont)
 }
 
 function toggleMenu() {
     document.body.classList.toggle("menu-open")
+}
+
+function onRandomMeme() {
+    gMeme = randomMeme()
+    renderMeme()
+    onShowEditor()
+}
+
+function onMoreFeatures() {
+    elMenue = document.querySelector('.more-features-menu')
+    elMenue.style.display = (isOpen) ? 'none' : 'grid'
+    isOpen = !isOpen
 }

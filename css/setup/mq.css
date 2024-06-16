@@ -3,9 +3,6 @@
         grid-template-columns: 20px 640px 20px;
     }
 
-
-    .image-container img {}
-
     .main-header {
         border-radius: 0px;
         height: 130px;
@@ -13,25 +10,20 @@
     }
 
     .image-container {
-
         grid-template-columns: 286px 286px;
         grid-auto-rows: 300px;
         gap: 1.875em 1.625em;
-
     }
 
     canvas {
         margin-block-end: 1em;
     }
 
-    .meme-editor {}
-
     .logo {
         font-size: 2.78125em;
         margin-inline-start: 1.32584em;
     }
 
-    .main-header a {}
 
     .main-nav {
         position: absolute;
@@ -41,7 +33,7 @@
         display: grid;
         grid-template-rows: 0fr;
         overflow: hidden;
-        transition: grid-template-rows 1s;
+        transition: grid-template-rows 0.3s;
         align-items: end;
     }
 
@@ -56,15 +48,13 @@
     body.menu-open .main-nav {
         grid-template-rows: 1fr;
     }
+
 }
-
-
 
 @media (min-width:817px) {
     .main-layout {
         grid-template-columns: 25px minmax(680px, 1291px) 25px;
     }
-
 
     .main-header {
         height: 4.5625rem;
@@ -80,22 +70,17 @@
     }
 
     .image-container {
-
         grid-template-columns: repeat(auto-fit, 200px);
         grid-auto-rows: 173px;
         height: 35.375rem;
         overflow-y: scroll;
         gap: 2.875em 1.625em;
-
     }
 
     .image-container img {
-
-
         border-radius: 10px;
         box-shadow: 0px 5px 6px 0 rgba(0, 0, 0, 0.34);
         background-color: #fefefe;
-
     }
 
     canvas {

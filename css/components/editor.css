@@ -118,12 +118,8 @@ input[type='color'] {
 .share-facebook::before {
     content: '\f1e0';
     margin-inline-end: 1em;
-
-
     font-family: 'fa';
-
     border-radius: 1.5625em;
-
 }
 
 .download {

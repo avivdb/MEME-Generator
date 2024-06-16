@@ -16,8 +16,6 @@
     transition: 0.3s ease-out;
 }
 
-.main-header li:last-child a {}
-
 .main-header a:hover {
 
     box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15);
@@ -47,7 +45,6 @@
     background-color: aliceblue;
     transition: 0.4s;
 }
-
 
 body.menu-open .btn-toggle-menu .hamburger-lines .line.line1 {
     rotate: -45deg;

@@ -6,11 +6,34 @@ var gImgs = _createImgs()
 var gCurrLine = 0
 var gLine
 
+const funnySentences = [
+    "When coffee kicks in hard.",
+    "Dogs understand life better, obviously.",
+    "Netflix and avoid social responsibilities.",
+    "Just here for the WiFi.",
+    "Procrastination level: Expert mode activated.",
+    "Running late? Call it fashionably.",
+    "Brain says gym, body naps.",
+    "When pizza becomes your soulmate.",
+    "Adulting: why does it exist?",
+    "Wifi down, sanity left town.",
+    "Diet starts tomorrow, promise seriously.",
+    "Mondays should come with warnings.",
+    "Living life on airplane mode.",
+    "Accidentally adulting like a pro.",
+    "Weekends need a day extension.",
+    "Sleep deprived but still thriving.",
+    "Caffeine: my one true love.",
+    "Unexpected guests? Hide the mess!",
+    "Life goal: nap like cat.",
+    "Sarcasm: my favorite coping mechanism."
+]
+
 function getMeme() {
     return gMeme
 }
+
 function createMeme(elImage) {
-    console.log('elImage:', elImage);
     const img = _createImg(gId, elImage.src, [])
     gImgs.push(img)
 
@@ -29,16 +52,13 @@ function createMeme(elImage) {
         ]
     }
     gMeme = meme
-    console.log('meme:', meme);
     return meme
 }
 
 function drawImg(imgId) {
     const newImage = new Image()
     img = gImgs.find(img => img.id === imgId)
-    console.log('img:', img);
     newImage.src = img.url
-    console.log('newImage:', newImage);
     coverCanvasWithImg(newImage)
     gSelectedImage = newImage
 }
@@ -73,7 +93,6 @@ function changeFontSize(operator) {
 
 function addLine() {
     gCurrLine = gMeme.lines.length
-    console.log('gCurrLine:', gCurrLine);
     gMeme.lines[gCurrLine] = {
         txt: '',
         size: 40,
@@ -148,10 +167,7 @@ function alignText(direction) {
 
 function deleteLine() {
     const line = getLine()
-    console.log('line:', line);
-    console.log('line.txt:', line.txt);
     line.txt = ' '
-    console.log('line.txt:', line.txt);
     renderMeme()
     updateEditor()
 }
@@ -161,5 +177,35 @@ function setFont(elFont) {
     line.fontFamily = elFont
     renderMeme()
     updateEditor()
+
+}
+
+function randomMeme() {
+
+
+    const imgIdx = getRandomIntInclusive(0, gGalleryImgs.length - 1)
+    const sentenceIdx = getRandomIntInclusive(0, funnySentences.length - 1)
+    const img = gGalleryImgs[imgIdx]
+    const sentence = funnySentences[sentenceIdx]
+    const newImg = _createImg(img.id, img.url, img.keywords)
+    gImgs.push(newImg)
+
+
+    const meme = {
+        selectedImgId: img.id,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: `${sentence}`,
+                size: 40,
+                color: { stroke: 'red', fill: 'white' },
+                pos: { x: 50, y: 50 },
+                align: 'left',
+                fontFamily: 'Impact'
+            }
+        ]
+    }
+    gMeme = meme
+    return meme
 
 }

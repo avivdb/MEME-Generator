@@ -24,7 +24,10 @@ const gKeywords = [
 
 ]
 
-var gKeywordSearchCountMap
+var gKeywordSearchCountMap = gKeywords.flat().reduce((map, word) => {
+    map[word] = (map[word] || 0) + 1;
+    return map;
+}, {});
 
 function getImgs() {
 
@@ -47,19 +50,8 @@ function createImg(url, keywords = []) {
 function createGallery() {
     for (let i = 1; i <= 18; i++) {
         const img = createImg(`img/${i}.jpg`, gKeywords[i - 1])
-
         gGalleryImgs.push(img)
     }
     return
 }
 
-function createWordCloud() {
-
-    gKeywordSearchCountMap = gKeywords.flat().reduce((map, word) => {
-        map[word] = (map[word] || 0) + 1;
-        return map;
-    }, {});
-
-
-
-}
